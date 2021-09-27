@@ -37,3 +37,6 @@ yarn-error.log*
 .serverless
 .serverless_nextjs
 .requirements.zip
+
+# python
+__pycache__
