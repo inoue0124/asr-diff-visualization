@@ -6,15 +6,16 @@ import ApiClient from "../api";
 type TextCardProps = {
   target: string;
   reference: string;
+  lang: string;
 };
 
-const DiffCard: React.FC<TextCardProps> = ({ target, reference }) => {
+const DiffCard: React.FC<TextCardProps> = ({ target, reference, lang }) => {
   const api = new ApiClient();
   const [wer, setWer] = useState<number>(0);
   const diff = differ(target, reference);
   useEffect(() => {
     if (target === "" || reference === "") return;
-    api.calculateWer(target, reference).then((res) => {
+    api.calculateWer(target, reference, lang).then((res) => {
       res.json().then((data) => {
         setWer(Math.round(data));
       });

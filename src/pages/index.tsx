@@ -89,7 +89,7 @@ const Index = () => {
         {target}
       </InputCard>
       {target !== "" && reference !== "" && (
-        <DiffCard target={target} reference={reference}></DiffCard>
+        <DiffCard target={target} reference={reference} lang={lang}></DiffCard>
       )}
     </div>
   );

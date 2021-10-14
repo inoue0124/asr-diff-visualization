@@ -32,8 +32,14 @@ def editDistance(r, h):
 
 def wer(event, context):
     bodyParams = json.loads(event["body"])
-    reference = bodyParams["reference"].split()
-    target = bodyParams["target"].split()
+    lang = bodyParams["lang"]
+
+    if lang == "en-US":
+        reference = bodyParams["reference"].split()
+        target = bodyParams["target"].split()
+    else:
+        reference = list(bodyParams["reference"])
+        target = list(bodyParams["target"])
 
     distance = editDistance(reference, target)
 
